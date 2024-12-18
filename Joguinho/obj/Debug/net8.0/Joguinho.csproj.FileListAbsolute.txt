@@ -1,0 +1,17 @@
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\bin\Debug\net8.0\Joguinho.exe
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\bin\Debug\net8.0\Joguinho.deps.json
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\bin\Debug\net8.0\Joguinho.runtimeconfig.json
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\bin\Debug\net8.0\Joguinho.dll
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\bin\Debug\net8.0\Joguinho.pdb
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\obj\Debug\net8.0\Joguinho.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\obj\Debug\net8.0\Joguinho.AssemblyInfoInputs.cache
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\obj\Debug\net8.0\Joguinho.AssemblyInfo.cs
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\obj\Debug\net8.0\Joguinho.csproj.CoreCompileInputs.cache
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\obj\Debug\net8.0\Joguinho.dll
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\obj\Debug\net8.0\refint\Joguinho.dll
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\obj\Debug\net8.0\Joguinho.pdb
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\obj\Debug\net8.0\Joguinho.genruntimeconfig.cache
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\obj\Debug\net8.0\ref\Joguinho.dll
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\obj\Debug\net8.0\Joguinho.csproj.AssemblyReference.cache
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Caio Gabriel\source\repos\Joguinho\Joguinho\obj\Debug\net8.0\Joguinho.csproj.Up2Date
