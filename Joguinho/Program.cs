@@ -1,19 +1,21 @@
-﻿using System.Reflection;
+using System.Reflection;
+using System.Reflection.Emit;
 using System.Reflection.Metadata.Ecma335;
 using System.Runtime.ExceptionServices;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
 using Newtonsoft.Json;
 
-// INIMIGO //
+//--INIMIGO--//
 public class enemy {
-    public int maxHealth = 100;
+    public int maxHealth = 100, currentHealth;
     public int damage = 10;
     public int criticalMulti = 3;
-    public int currentHealth;
     public int chanceAttack = 60;
-    public int chanceDefense = 80;
+    public int chanceDefense = 80, defense = 5;
     public bool bAtivouFeitico = false;
+    public string nome = "Inimigo 1";
 
     public void deathEnemy() {
         Console.WriteLine($"Inimigo Morto!");
@@ -54,13 +56,12 @@ public class enemy {
     }
 
     public void enemyDefense(enemy enemy, player player) {
-        int defense = 5;
         if (player.bAtacou == true) {
             currentHealth += defense;
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"====================================");
             Console.WriteLine($"O INIMIGO DEFENDEU PARTE DO ATAQUE!");
-            Console.WriteLine($"VIDA ATUAL DO INIMIGO: {maxHealth}/{currentHealth}");
+            Console.WriteLine($"-{player.damage - enemy.defense} de dano sofrido!");
             Console.WriteLine($"====================================\n");
         }
         else {
@@ -146,17 +147,27 @@ public class enemy {
             }
         }
     }
+
+    public void statusEnemy() {
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        Console.WriteLine($"-----------------------------------");
+        Console.WriteLine($"{nome}\n");
+        Console.WriteLine($"VIDA: {maxHealth}/{currentHealth}");
+        Console.WriteLine($"DANO: {damage}");
+        Console.WriteLine($"-----------------------------------");
+    }
 }
 
 
-//PLAYER
+//--PLAYER--//
 public class player {
-    public int maxHealth = 100;
+    public int maxHealth = 100, currentHealth;
     public int damage = 10;
-    public int currentHealth;
     public int level = 1;
     public int round = 0;
-    public bool bAtacou = false;
+    public int inicialMoney = 5, currentMoney, multiMoney = 1; 
+    public bool bAtacou = true, bChangeTurno = false;
+    public string nome; 
 
     public bool bEstaVivo() {
         if (currentHealth <= 0) {
@@ -167,17 +178,19 @@ public class player {
         }
     }
 
-    public void status() {
+    public void statusPlayer() {
         Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine($"-----------------------------------");
+        Console.WriteLine($"PLAYER: {nome}\n");
         Console.WriteLine($"ROUND ATUAL: {round}");
         Console.WriteLine($"LEVEL: {level}");
         Console.WriteLine($"VIDA: {maxHealth}/{currentHealth}");
         Console.WriteLine($"DANO: {damage}");
+        Console.WriteLine($"${currentMoney}");
         Console.WriteLine($"-----------------------------------");
     }
 
-    public void attack(enemy enemy) {
+    public void attack(enemy enemy, player player) {
         Console.Clear();
         enemy.currentHealth -= damage;
         bAtacou = true;
@@ -187,7 +200,7 @@ public class player {
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"-----------------------------------");
         Console.WriteLine($"VOCÊ ATACOU!");
-        Console.WriteLine($"VIDA ATUAL DO INIMIGO: {enemy.maxHealth}/{enemy.currentHealth}");
+        Console.WriteLine($"-{player.damage} de Vida");
         Console.WriteLine($"-----------------------------------\n");
         Thread.Sleep(500);
     }
@@ -205,7 +218,7 @@ public class player {
         Console.WriteLine($"VOCÊ TOMOU POTE!");
         Console.WriteLine($"+{pocaoCura} DE VIDA!");
         Console.WriteLine($"-----------------------------------\n");
-        Thread.Sleep(500);
+        Thread.Sleep(700);
     }
 
     public bool upgrades(enemy enemy, player player) {
@@ -225,6 +238,15 @@ public class player {
         }
     }
 
+    public void money(enemy enemy, player player) {
+        if (player.round == 1) {
+            currentMoney += 0 * multiMoney;
+            player.currentMoney = player.inicialMoney;
+        }
+        if (bChangeTurno == true) {
+            currentMoney += 10 * multiMoney;
+        }
+    }
 }
     class Program {
     private static string resposta;
@@ -241,15 +263,21 @@ public class player {
                 enemy.currentHealth = enemy.maxHealth;
                 player.damage = player.damage;
                 player.round = player.round;
+                Console.ResetColor();            
+                Console.Write("Player, digite seu nome: ");
+                player.nome = Console.ReadLine(); 
 
                 do {
                     player.round++;
+                    player.money(enemy, player);
+                    player.bChangeTurno = true;
                     if (player.upgrades(enemy, player) == true) {
                         player.damage += 10;
                     }
                     enemy.bAtivouFeitico = false;
                     player.bAtacou = false;
-                    player.status();
+                    enemy.statusEnemy(); 
+                    player.statusPlayer();
                     Console.ResetColor();
                     Console.WriteLine($"-----------------------------------");
                     Console.WriteLine($"O que você quer fazer?");
@@ -262,7 +290,7 @@ public class player {
 
                     switch (conversorInt) {
                         default: Console.WriteLine("Escolha uma opção válida!"); break;
-                        case 1: player.attack(enemy); break;
+                        case 1: player.attack(enemy, player); break;
 
                         case 2: player.pocaoCura(enemy, player); break;
 
