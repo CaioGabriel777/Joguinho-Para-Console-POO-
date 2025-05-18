@@ -1,5 +1,4 @@
 ﻿using Joguinho_Console.entity;
-using System;
 
 namespace Joguinho_Console.movements {
     public class PlayerMovements {
@@ -33,27 +32,31 @@ namespace Joguinho_Console.movements {
         }
 
         public void status(Player pPlayer) {
+            Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine($"-----------------------------------");
+            Console.WriteLine($"PLAYER: {pPlayer.Nome}\n");
             Console.WriteLine($"ROUND ATUAL: {pPlayer.Round}");
             Console.WriteLine($"LEVEL: {pPlayer.Level}");
             Console.WriteLine($"VIDA: {pPlayer.MaxHealth}/{pPlayer.CurrentHealth}");
             Console.WriteLine($"DANO: {pPlayer.Damage}");
+            Console.WriteLine($"${pPlayer.CurrentMoney}");
             Console.WriteLine($"-----------------------------------");
         }
 
         public void attack(Player pPlayer, Enemy pEnemy) {
             Console.Clear();
             pEnemy.CurrentHealth -= pPlayer.Damage;
-            pPlayer.Atacou = true;
+            pPlayer.bAtacou = true;
             if (pEnemy.CurrentHealth < 0) {
                 pEnemy.CurrentHealth = 0;
             }
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"-----------------------------------");
             Console.WriteLine($"VOCÊ ATACOU!");
-            Console.WriteLine($"VIDA ATUAL DO INIMIGO: {pEnemy.MaxHealth}/{pEnemy.CurrentHealth}");
+            Console.WriteLine($"-{pPlayer.Damage} de Vida.");
             Console.WriteLine($"-----------------------------------\n");
+            Thread.Sleep(500);
         }
 
         public void pocaoCura(Player pPlayer, Enemy pEnemy) {
@@ -67,7 +70,7 @@ namespace Joguinho_Console.movements {
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine($"-----------------------------------");
             Console.WriteLine($"VOCÊ TOMOU POTE!");
-            Console.WriteLine($"+{pocaoCura} DE VIDA!");
+            Console.WriteLine($"+{pocaoCura} de Vida!");
             Console.WriteLine($"-----------------------------------\n");
         }
 
@@ -85,6 +88,16 @@ namespace Joguinho_Console.movements {
             }
             else {
                 return false;
+            }
+        }
+
+        public void money(Player pPlayer) {
+            if (pPlayer.Round == 1) {
+                pPlayer.CurrentMoney += 0 * pPlayer.MultiMoney;
+                pPlayer.CurrentMoney = pPlayer.InicialMoney;
+            }
+            if (pPlayer.bChangeTurno == true) {
+                pPlayer.CurrentMoney += 10 * pPlayer.MultiMoney;
             }
         }
 

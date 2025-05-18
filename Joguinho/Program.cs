@@ -19,12 +19,22 @@ class Program {
             player.Round = player.Round;
             enemy.CurrentHealth = enemy.MaxHealth;
 
+            Console.ResetColor();
+            Console.Write("Player, digite seu nome: ");
+            player.Nome = Console.ReadLine();
 
             do {
                 player.Round++;
+                playerMovements.money(player);
+                player.bChangeTurno = true;
+                
                 if (playerMovements.upgrades(player, enemy) == true) {
                     player.Damage += 10;
                 }
+                enemy.bAtivouFeitico = false;
+                player.bAtacou = false;
+
+                enemyMovements.statusEnemy(enemy);
                 playerMovements.status(player);
 
                 playerMovements.actions(player, enemy);
@@ -34,6 +44,7 @@ class Program {
                     break;
                 }
 
+                enemyMovements.enemyPuzzles(enemy, player);
                 enemyMovements.enemyChanges(enemy, player);
 
             } while (playerMovements.bEstaVivo(player) && enemyMovements.bEstaVivo(enemy));
@@ -45,7 +56,7 @@ class Program {
                 Console.WriteLine("O inimigo morreu. Fim do jogo!");
             }
             Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine($"\n\nQuer jogar novamente?");
+            Console.WriteLine($"\n\nQuer jogar novamente? ('S' ou 'SIM')");
             Console.Write(">> ");
             Program.resposta = Console.ReadLine();
 
