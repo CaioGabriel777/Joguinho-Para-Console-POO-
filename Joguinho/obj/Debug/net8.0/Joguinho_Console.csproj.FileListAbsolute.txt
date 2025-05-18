@@ -1,0 +1,17 @@
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\obj\Debug\net8.0\Joguinho_Console.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\obj\Debug\net8.0\Joguinho_Console.AssemblyInfoInputs.cache
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\obj\Debug\net8.0\Joguinho_Console.AssemblyInfo.cs
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\obj\Debug\net8.0\Joguinho_Console.csproj.CoreCompileInputs.cache
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\bin\Debug\net8.0\Joguinho_Console.exe
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\bin\Debug\net8.0\Joguinho_Console.deps.json
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\bin\Debug\net8.0\Joguinho_Console.runtimeconfig.json
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\bin\Debug\net8.0\Joguinho_Console.dll
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\bin\Debug\net8.0\Joguinho_Console.pdb
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\obj\Debug\net8.0\Joguinho_Console.csproj.AssemblyReference.cache
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\obj\Debug\net8.0\Joguinho.C75507D8.Up2Date
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\obj\Debug\net8.0\Joguinho_Console.dll
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\obj\Debug\net8.0\refint\Joguinho_Console.dll
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\obj\Debug\net8.0\Joguinho_Console.pdb
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\obj\Debug\net8.0\Joguinho_Console.genruntimeconfig.cache
+C:\Users\Caio Gabriel\source\repos\Joguinho_Console\Joguinho_Console\obj\Debug\net8.0\ref\Joguinho_Console.dll
